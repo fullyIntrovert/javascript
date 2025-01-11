@@ -62,8 +62,8 @@ function reset() {
   document.querySelector(".number").style.width = "15rem";
   document.querySelector(".highscore").textContent = 20;
   document.querySelector(".number").textContent = "?";
-  document.querySelector(".highscore").textContent = 0;
+  document.querySelector(".highscore").textContent = score;
   score = 10;
-  document.querySelector(".score").textContent = score;
+  document.querySelector(".score").textContent = 10;
   document.querySelector(".guess").value = "";
 }
