@@ -19,6 +19,8 @@ function doIt(no) {
   //here we are removing the hidden class from our modal. one thing to note do not use ".hidden" here bcz, here we are not selecting the hidden class but we are just passing the name of the class to remove.And we can also remove multiple class int same function just pass the name separated by comma like modal.classList.remove("hidden", "abc", "xyz", ...etc)
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
+  //Here we are making close btn as focus element so that when we press the enter key it will execute the same code as esc key does...
+  btnCloseModal.focus();
 }
 
 btnCloseModal.addEventListener("click", closeModal);
@@ -27,4 +29,14 @@ overlay.addEventListener("click", closeModal);
 function closeModal() {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
+}
+
+//Here we are adding one more functionality that when user press esc key, that pop up will close automatically
+document.addEventListener("keydown", handleEvent);
+
+//Here we are checking which key is pressed, but one thing to make Enter key work, we have to make our pop as focus so that browser will get to know that currently this element is in focus than only Enter key functionality will work...
+function handleEvent(e) {
+  if (e.key === "Escape" || e.key === "Enter") {
+    if (!modal.classList.contains("hidden")) closeModal();
+  }
 }
